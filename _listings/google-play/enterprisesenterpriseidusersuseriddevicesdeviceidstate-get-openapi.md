@@ -1,9 +1,15 @@
+---
 swagger: "2.0"
 x-collection-name: Google Play
-x-complete: 1
+x-complete: 0
 info:
-  title: Google Play
+  title: Google Play Get Per Device App Install State
   version: 1.0.0
+  description: Retrieves whether a device's access to Google services is enabled or
+    disabled. The device state takes effect only if enforcing EMM policies on Android
+    devices is enabled in the Google Admin Console. Otherwise, the device state is
+    ignored and all devices are allowed access to Google services. This is only supported
+    for Google-managed users.
 schemes:
 - http
 produces:
@@ -289,31 +295,17 @@ paths:
           description: OK
       tags:
       - App Install
-    put:
-      summary: Update Per Device App Install State
-      description: Sets whether a device's access to Google services is enabled or
-        disabled. The device state takes effect only if enforcing EMM policies on
-        Android devices is enabled in the Google Admin Console. Otherwise, the device
-        state is ignored and all devices are allowed access to Google services. This
-        is only supported for Google-managed users.
-      operationId: androidenterprise.devices.setState
-      x-api-path-slug: enterprisesenterpriseidusersuseriddevicesdeviceidstate-put
-      parameters:
-      - in: body
-        name: body
-        schema:
-          $ref: '#/definitions/holder'
-      - in: path
-        name: deviceId
-        description: The ID of the device
-      - in: path
-        name: enterpriseId
-        description: The ID of the enterprise
-      - in: path
-        name: userId
-        description: The ID of the user
-      responses:
-        200:
-          description: OK
-      tags:
-      - App Install
+x-streamrank:
+  polling_total_time_average: 0
+  polling_size_download_average: 0
+  streaming_total_time_average: 0
+  streaming_size_download_average: 0
+  change_yes: 0
+  change_no: 0
+  time_percentage: 0
+  size_percentage: 0
+  change_percentage: 0
+  last_run: ""
+  days_run: 0
+  minute_run: 0
+---
